@@ -1,0 +1,42 @@
+<odoo>
+    <data>
+        <!-- Define the menu -->
+        <menuitem id="menu_demo_demo" name="Demo" sequence="10"/>
+        <menuitem id="menu_demo_demo_main" name="Demo Object" parent="menu_demo_demo" sequence="10"
+                  action="action_demo_demo"/>
+
+        <!-- Define the tree view -->
+        <record id="view_demo_demo_tree" model="ir.ui.view">
+            <field name="name">demo.demo.tree</field>
+            <field name="model">demo.demo</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- Define the form view -->
+        <record id="view_demo_demo_form" model="ir.ui.view">
+            <field name="name">demo.demo.form</field>
+            <field name="model">demo.demo</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Define the action -->
+        <record id="action_demo_demo" model="ir.actions.act_window">
+            <field name="name">Demo Object</field>
+            <field name="res_model">demo.demo</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="view_demo_demo_tree"/>
+        </record>
+    </data>
+</odoo>
